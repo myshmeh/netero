@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.myshmeh.github.neterosetting.infrastructure.training.setting.TrainingSettingMapper">
+    <resultMap id="TrainingID" type="io.myshmeh.github.neterosetting.domain.training.TrainingID">
+        <result property="value" column="training_id"/>
+    </resultMap>
+
+    <select id="getNextTrainingID" resultMap="TrainingID">
+        select nextval('public.training_training_id_seq') as training_id
+    </select>
+
+    <insert id="register">
+        insert into public.training (
+            training_id,
+            name
+        ) values (
+            #{trainingSetting.trainingID.value},
+            #{trainingSetting.trainingName.value}
+        )
+    </insert>
+</mapper>

@@ -10,4 +10,5 @@
 rootProject.name = 'netero'
 include 'neterosetting'
 include 'neterorecording'
+include 'neteroanalysis'
 include 'database'

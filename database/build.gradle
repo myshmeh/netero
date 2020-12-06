@@ -4,6 +4,23 @@
  * This is a general purpose Gradle build.
  * Learn more about Gradle by exploring our samples at https://docs.gradle.org/6.7/samples
  */
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.postgresql:postgresql:42.1.1")
+    }
+}
+
 plugins {
     id "org.flywaydb.flyway" version "7.3.1"
+}
+
+flyway {
+    url = "jdbc:postgresql://localhost:5432/netero"
+    user = "postgres_user"
+    password = "password"
+    locations = ["filesystem:./migrations"]
+    schemas = ['public']
 }

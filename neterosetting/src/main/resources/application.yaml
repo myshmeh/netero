@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/netero
+    username: postgres_user
+    password: password
+    driverClassName: org.postgresql.Driver
+  jackson:
+    visibility:
+      field: any
+      getter: none
+      setter: none
+    property-naming-strategy: SNAKE_CASE
+server:
+  port: 8082
+  shutdown: graceful
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    web: debug
+    jp.trustid.account: debug
+    org.mybatis: debug
